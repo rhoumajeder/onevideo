@@ -1,0 +1,17 @@
+---
+- name: Create a directory for the Flask app
+  file:
+    path: ./flask_app
+    state: directory
+
+- name: Copy Flask app files to the remote machine
+  copy:
+    src: ../flask_app/
+    dest: ./flask_app
+    owner: ubuntu
+    mode: 0755
+    
+
+
+
+

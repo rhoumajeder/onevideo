@@ -1,0 +1,90 @@
+
+
+Open connection port on Master node 
+Don't forget to transfer files to master node via ansible 
+transfer file nginx .. 
+
+
+
+kubectl kustomize . | kubectl apply -f -
+
+kubectl -n rocket-chat get pods
+sudo kubectl -n rocket-chat get nodes -o wide  && sudo kubectl get services
+
+
+kubectl get pods && kubectl get deployments
+kubectl delete pod <pod-name>
+kubectl delete deployment <deployment-name>
+
+
+kubectl -n rocket-chat exec -it rocketchat-bccfb9d5b-wh68t -- env | grep MONGO_
+
+kubectl -n rocket-chat logs rocketchat-bccfb9d5b-wh68t
+
+kubectl -n rocket-chat exec -it rocketchat-bccfb9d5b-wh68t -- nslookup mongodb.rocket-chat.svc.cluster.local
+
+
+kubectl -n rocket-chat get deployment 
+kubectl -n rocket-chat get pods
+kubectl -n rocket-chat delete deployment rocketchat
+kubectl -n rocket-chat delete pods mongodb-0  rocketchat-bccfb9d5b-jjtlv 
+
+kubectl -n rocket-chat get statefulsets
+
+kubectl -n rocket-chat delete statefulset mongodb
+============================
+
+Delete 
+kubectl -n rocket-chat delete deployment rocketchat
+kubectl -n rocket-chat delete statefulset mongodb
+kubectl delete pods --all -n rocket-chat
+kubectl -n rocket-chat get pods
+
+
+
+
+
+
+
+
+===================================================================
+Basic example of flask monogodb and kubernetes 
+make your modification in python code
+Build the docker image and commit push 
+re run the deployment in kubernetes 
+
+
+
+
+
+ sudo docker build -t public.ecr.aws/s5s0j5g4/flask-mongo-app:latest .
+ sudo docker push public.ecr.aws/s5s0j5g4/flask-mongo-app:latest
+ kubectl rollout restart deployment/flask-mongo-app
+ 
+  kubectl rollout restart deployment/rocketchat
+ 
+ 
+  kubectl kustomize . | kubectl apply -f -
+ 
+  kubectl get pods
+  
+  curl -X POST -H "Content-Type: application/json" -d '{"key": "value", "name": "John"}' http://3.8.203.239:32141/api/data
+  
+  curl -X POST -H "Content-Type: application/json" -d '{"name": "Alice", "age": 333335}' http://13.40.225.252:32141/api/data
+  
+ 
+
+sudo kubectl get nodes -o wide  && sudo kubectl get services
+
+==============
+
+
+Transfer file 
+Local server :
+sudo rsync -avz -e "ssh -i RjeKeys.pem" /etc/nginx/ ubuntu@13.41.186.71:/tmp/nginx
+sudo rsync -avz -e "ssh -i RjeKeys.pem" /etc/letsencrypt/ ubuntu@13.41.186.71:/tmp/letsencrypt
+
+Setup nginx in remote server :
+
+sudo rsync -av /tmp/nginx/ /etc/nginx/
+sudo rsync -av /tmp/letsencrypt/ /etc/letsencrypt/

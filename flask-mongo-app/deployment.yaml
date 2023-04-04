@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-mongo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-mongo-app
+  template:
+    metadata:
+      labels:
+        app: flask-mongo-app
+    spec:
+      containers:
+      - name: flask-mongo-app
+        image: public.ecr.aws/s5s0j5g4/flask-mongo-app:latest 
+        ports:
+        - containerPort: 5000
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+      - key: "node.kubernetes.io/unreachable"
+        operator: "Exists"
+        effect: "NoExecute"

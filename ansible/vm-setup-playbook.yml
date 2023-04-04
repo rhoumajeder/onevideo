@@ -1,0 +1,19 @@
+# ---
+# - name: Example Ansible playbook
+#   hosts: MasterKubernetes
+#   remote_user: ubuntu
+#   roles:
+#     - kubernetesMaster
+#     #- python-flask
+#     #- docker
+    
+- name: Example Ansible playbook
+  hosts: WorkerKubernetes
+  remote_user: ubuntu
+  roles:
+    - kubernetesWorker
+    #- python-flask
+    #- docker
+
+
+

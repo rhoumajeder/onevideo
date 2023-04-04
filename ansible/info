@@ -1,0 +1,9 @@
+ansible-playbook --inventory inventory/vm-setup-playbook/hosts vm-setup-playbook.yml 
+sudo ssh -i "RjeKeys.pem" ubuntu@3.9.23.214
+
+sudo kubectl get nodes
+sudo kubectl get pods
+
+
+sudo rsync -avz -e "ssh -i RjeKeys.pem" ./../rocketChatKubernetes ubuntu@3.9.23.214:/home/ubuntu/kudep
+sudo rsync -av /tmp/nginx/ /etc/nginx/

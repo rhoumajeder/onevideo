@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-flask
+  template:
+    metadata:
+      labels:
+        app: hello-world-flask
+    spec:
+      containers:
+      - name: hello-world-flask
+        image:  public.ecr.aws/s5s0j5g4/flask:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+
